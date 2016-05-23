@@ -12,9 +12,8 @@ import {connect} from "react-redux";
 class Landing extends Component {
 
   componentWillReceiveProps(nextProps) {
-      console.log(this.props)
-      if (nextProps.birthdayCaptured !== this.props.birthdayCaptured) {
-        this.props.actions.doCoreCalcs(nextProps.birthday)
+      if (nextProps.birthday.entered && nextProps.birthday.isValid && !nextProps.birthday.calcsDone) {
+        this.props.actions.doCoreCalcs(nextProps.birthday.date)
       }
     }
 
@@ -23,7 +22,7 @@ class Landing extends Component {
       if(code == 13) { //Enter keycode
         e.preventDefault()
         birthday = window.document.getElementById('birthday')
-        console.log("handled enter key: "+birthday.value)
+        //console.log("handled enter key: "+birthday.value)
         birthday.blur()
         $(document.body).click()
       }
@@ -32,12 +31,12 @@ class Landing extends Component {
   handleSubmit(e) {
     e.preventDefault()
     birthday = window.document.getElementById('birthday')
-    console.log("handled submit button: "+birthday.value)
+    //console.log("handled submit button: "+birthday.value)
     this.props.actions.setBirthday(birthday.value)
   }
 
   render(){
-
+    //console.log(this.props)
     return(
       <div>
 
@@ -569,8 +568,14 @@ class Landing extends Component {
 }
 
 function mapStateToProps(state) {
-  return { birthdayCaptured: state.user.birthdayCaptured,
-            birthday: state.user.birthday};
+  return {  birthday: {
+                entered: state.user.entered,
+                isValid: state.user.valid,
+                date:    state.user.birthday,
+                calcsDone: state.user.calcsDone,
+              },
+            stars: state.user.stars,
+          };
 }
 
 function mapDispatchToProps(dispatch) {
