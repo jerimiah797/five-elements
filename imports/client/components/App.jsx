@@ -1,9 +1,12 @@
 // App.jsx
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-//import { createContainer } from 'meteor/react-meteor-data';
+//redux imports
+import * as actionCreators from '../actions/User.js';
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     //console.log(this.props)
     return (
@@ -13,3 +16,14 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { birthdayCaptured: state.user.birthdayCaptured,
+            birthday: state.user.birthday};
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,6 +1,7 @@
-export function setUserDataAvailable(value) {
+export function setBirthdayCaptured(value, birthday) {
   return {
-    type: 'SET_USERDATA_AVAILABLE',
-    userDataAvailable: value
+    type: 'SET_BIRTHDAY_CAPTURED',
+    birthdayCaptured: value,
+    birthday: birthday
   }
 }

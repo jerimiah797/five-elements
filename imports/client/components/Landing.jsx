@@ -1,7 +1,46 @@
 
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 export default class Landing extends Component {
+
+  componentDidMount() {
+
+  }
+
+  createDatePickerListener() {
+    test = window.document.getElementsByClassName('uk-datepicker-table')
+    if (test) console.log("Found the datepicker node")
+    console.log(test)
+    test[0].addEventListener('click', this.testEventListener)
+    this.createBirthdayListener();
+  }
+
+  createBirthdayListener() {
+    test1 = window.document.getElementById('birthday')
+    if (test1) console.log("Found the birthday node")
+    test1.addEventListener('change', this.birthdayEventListener)
+    test1.addEventListener('blur', this.birthdayEventListener)
+    test1.addEventListener('input', this.birthdayEventListener)
+    test1.addEventListener('refresh', this.birthdayEventListener)
+  }
+
+  birthdayEventListener(e) {
+    setTimeout(function() {
+      console.log("BirthdayEvent listener triggered!")
+      console.log(e)
+      birthday = window.document.getElementById('birthday')
+      console.log(birthday.value)
+    }, 300);
+  }
+
+  testEventListener(e) {
+    console.log(" Datepicker Eventlistener triggered!")
+    birthday = window.document.getElementById('birthday')
+    console.log(birthday.value)
+
+  }
   render(){
     return(
       <div>
@@ -46,9 +85,13 @@ export default class Landing extends Component {
                     Achieve Happiness & Harmony in Your Life</h5>
                   <p className="uk-text-large">Enter your birthday to get started </p>
                   <div>
-                    <form className="uk-form">
+                    <form className="uk-form" ref="ukForm">
                       <input
+
+                        onClick={this.createDatePickerListener.bind(this)}
+                        id="birthday"
                         type="text"
+                        ref="birthday"
                         data-uk-datepicker="{format:'MM/DD/YYYY'}"
                         placeholder="01/01/2001" />
                     </form>
