@@ -2,46 +2,42 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import * as C from '../constants/constants.js';
 
-export default class Landing extends Component {
+//redux imports
+import * as actionCreators from '../actions/User.js';
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
-  componentDidMount() {
+class Landing extends Component {
 
+  componentWillReceiveProps(nextProps) {
+      console.log(this.props)
+      if (nextProps.birthdayCaptured !== this.props.birthdayCaptured) {
+        this.props.actions.doCoreCalcs(nextProps.birthday)
+      }
+    }
+
+  handleEnterKey(e) {
+    var code = (e.keyCode ? e.keyCode : e.which);
+      if(code == 13) { //Enter keycode
+        e.preventDefault()
+        birthday = window.document.getElementById('birthday')
+        console.log("handled enter key: "+birthday.value)
+        birthday.blur()
+        $(document.body).click()
+      }
   }
 
-  createDatePickerListener() {
-    test = window.document.getElementsByClassName('uk-datepicker-table')
-    if (test) console.log("Found the datepicker node")
-    console.log(test)
-    test[0].addEventListener('click', this.testEventListener)
-    this.createBirthdayListener();
-  }
-
-  createBirthdayListener() {
-    test1 = window.document.getElementById('birthday')
-    if (test1) console.log("Found the birthday node")
-    test1.addEventListener('change', this.birthdayEventListener)
-    test1.addEventListener('blur', this.birthdayEventListener)
-    test1.addEventListener('input', this.birthdayEventListener)
-    test1.addEventListener('refresh', this.birthdayEventListener)
-  }
-
-  birthdayEventListener(e) {
-    setTimeout(function() {
-      console.log("BirthdayEvent listener triggered!")
-      console.log(e)
-      birthday = window.document.getElementById('birthday')
-      console.log(birthday.value)
-    }, 300);
-  }
-
-  testEventListener(e) {
-    console.log(" Datepicker Eventlistener triggered!")
+  handleSubmit(e) {
+    e.preventDefault()
     birthday = window.document.getElementById('birthday')
-    console.log(birthday.value)
-
+    console.log("handled submit button: "+birthday.value)
+    this.props.actions.setBirthday(birthday.value)
   }
+
   render(){
+
     return(
       <div>
 
@@ -52,16 +48,16 @@ export default class Landing extends Component {
               <a href="layouts_frontpage.html">Home</a>
             </li>
             <li>
-              <a href="layouts_portfolio.html">Blog</a>
+              <a href="layouts_portfolio.html">Stars</a>
             </li>
             <li>
-              <a href="layouts_blog.html">Relationships</a>
+              <a href="layouts_blog.html">Elements</a>
             </li>
             <li>
-              <a href="layouts_documentation.html">History</a>
+              <a href="layouts_documentation.html">Transformations</a>
             </li>
             <li>
-              <a href="layouts_contact.html">Contact</a>
+              <a href="layouts_contact.html">Trigrams</a>
             </li>
           </ul>
           <div className="uk-navbar-flip">
@@ -74,34 +70,62 @@ export default class Landing extends Component {
           <a href="#offcanvas" className="uk-navbar-toggle uk-visible-small" data-uk-offcanvas />
           <div className="uk-navbar-brand uk-navbar-center uk-visible-small">Five Elements</div>
         </nav>
+
+
+
+
         <div className="uk-grid" data-uk-grid-margin>
             <div className="uk-width-medium-1-1">
-              <div className="uk-cover uk-height-viewport uk-vertical-align uk-text-center"
-                style={{backgroundColor: "#F5F5F5", height: 450}}>
-                <div className="uk-vertical-align-middle uk-width-7-8">
-                  <h1 className="uk-heading-large uk-margin-bottom-remove">
-                    The Five Elements</h1>
-                  <h5 className="uk-margin-large-bottom uk-margin-top-remove">
-                    Achieve Happiness & Harmony in Your Life</h5>
-                  <p className="uk-text-large">Enter your birthday to get started </p>
-                  <div>
-                    <form className="uk-form" ref="ukForm">
-                      <input
-
-                        onClick={this.createDatePickerListener.bind(this)}
-                        id="birthday"
-                        type="text"
-                        ref="birthday"
-                        data-uk-datepicker="{format:'MM/DD/YYYY'}"
-                        placeholder="01/01/2001" />
-                    </form>
+              <div className="uk-cover uk-height-viewport  uk-text-center"
+                style={{backgroundColor: "#F5F5F5"}}>
+                  <div className="uk-grid uk-width-3-4 uk-container-center uk-margin-large-top">
+                    <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.FIRE} alt="" />
+                    </div>
+                    <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.SOIL} alt="" />
+                    </div>
+                    <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.METAL} alt="" />
+                    </div>
+                    <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.WATER} alt="" />
+                    </div>
+                    <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.WOOD} alt="" />
+                    </div>
                   </div>
+
+                <div className="uk-vertical-align-middle uk-width-7-8">
+                            <h1 className="uk-heading-large uk-margin-bottom-remove">
+                              The Five Elements</h1>
+                            <h5 className="uk-margin-large-bottom uk-margin-top-remove">
+                              Achieve Happiness & Harmony in Your Life</h5>
+                            <p className="uk-text-large">Enter your birth date to get started </p>
+                            <div>
+                              <form className="uk-form" ref="ukForm">
+                                <input
+
+                                  onKeyPress={this.handleEnterKey.bind(this)}
+                                  id="birthday"
+                                  type="text"
+                                  ref="birthday"
+                                  data-uk-datepicker="{format:'MM/DD/YYYY'}"
+                                  placeholder="01/15/1976" />
+                                <button className="uk-button uk-button-primary"
+                                        onClick={this.handleSubmit.bind(this)}>
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+
+
                 </div>
               </div>
             </div>
           </div>
 
-        <div className="uk-container uk-container-center uk-margin-large-bottom uk-margin-large-top">
+        <div className="uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom">
 
           <div className="uk-grid first-row-of-three" data-uk-grid-margin>
 
@@ -111,7 +135,7 @@ export default class Landing extends Component {
 
                 <div className="uk-width-1-6 uk-img-preserve">
 
-                  <img data-uk-svg width="35" height="35" src="images/Fire.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.FIRE} alt="" />
 
                 </div>
 
@@ -137,7 +161,7 @@ export default class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src="images/Wood.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.WOOD} alt="" />
                 </div>
 
                 <div className="uk-width-5-6">
@@ -162,7 +186,7 @@ export default class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src="images/Water.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.WATER} alt="" />
                 </div>
 
                 <div className="uk-width-5-6">
@@ -191,7 +215,7 @@ export default class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src="images/Metal.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.METAL} alt="" />
                 </div>
 
                 <div className="uk-width-5-6">
@@ -216,7 +240,7 @@ export default class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src="images/Soil.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.SOIL} alt="" />
                 </div>
 
                 <div className="uk-width-5-6">
@@ -241,7 +265,7 @@ export default class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src="images/Fire.svg" alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.FIRE} alt="" />
                 </div>
                 <div className="uk-width-5-6">
 
@@ -511,7 +535,46 @@ export default class Landing extends Component {
           </div>
 
         </div>
+
+      <div id="offcanvas" className="uk-offcanvas">
+        <div className="uk-offcanvas-bar">
+          <ul className="uk-nav uk-nav-offcanvas">
+            <li>
+              <a href="layouts_frontpage.html">Frontpage</a>
+            </li>
+            <li>
+              <a href="layouts_portfolio.html">Portfolio</a>
+            </li>
+            <li className="uk-active">
+              <a href="layouts_blog.html">Blog</a>
+            </li>
+            <li>
+              <a href="layouts_documentation.html">Documentation</a>
+            </li>
+            <li>
+              <a href="layouts_contact.html">Contact</a>
+            </li>
+            <li>
+              <a href="layouts_login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return { birthdayCaptured: state.user.birthdayCaptured,
+            birthday: state.user.birthday};
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
