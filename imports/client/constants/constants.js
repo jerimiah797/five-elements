@@ -4,10 +4,10 @@ export const FIRE = "images/Fire.svg"
 export const WOOD = "images/Wood.svg"
 export const WATER = "images/Water.svg"
 export const METAL = "images/Metal.svg"
-export const SOIL = "images/Soil.svg"
+export const EARTH = "images/Earth.svg"
 
 // Array of objects is padded with a null to map star number directly
-// Star 5 SOIL is located at STAR[5]
+// Star 5 EARTH is located at STAR[5]
 export const STAR = [null,
   {name: "White Water Star",
       trigramName: "K'an",
@@ -20,15 +20,15 @@ export const STAR = [null,
       image: WATER
   },
 
-  {name: "Black Soil Star",
+  {name: "Black Earth Star",
       trigramName: "K'Un",
       trigram: [2, 2, 2],
       number: 2,
       symbolism: "Earth - The Receptive",
       familyMember: "Mother",
-      element: "Soil",
+      element: "Earth",
       color: "Black",
-      image: SOIL
+      image: EARTH
   },
 
   {name: "Bright Green Tree",
@@ -53,15 +53,15 @@ export const STAR = [null,
       image: WOOD
   },
 
-  {name: "Yellow Soil Star",
+  {name: "Yellow Earth Star",
       trigramName: null,
       trigram: null,
       number: 5,
       symbolism: "The center",
       familyMember: "the Seventh Child",
-      element: "Soil",
+      element: "Earth",
       color: "Yellow",
-      image: SOIL
+      image: EARTH
   },
 
   {name: "White Metal Star",
@@ -86,15 +86,15 @@ export const STAR = [null,
       image: METAL
   },
 
-  {name: "White Soil Star",
+  {name: "White Earth Star",
       trigramName: "Ken",
       trigram: [1, 2, 2],
       number: 8,
       symbolism: "Mountain",
       familyMember: "Youngest Son",
-      element: "Soil",
+      element: "Earth",
       color: "White",
-      image: SOIL
+      image: EARTH
   },
 
   {name: "Purple Fire Star",

@@ -82,7 +82,7 @@ class Landing extends Component {
                       <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.FIRE} alt="" />
                     </div>
                     <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
-                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.SOIL} alt="" />
+                      <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.EARTH} alt="" />
                     </div>
                     <div className="uk-width-1-5 uk-margin-large-bottom uk-margin-large-top">
                       <img data-uk-svg width={C.ICON_SIZE} height={C.ICON_SIZE} src={C.METAL} alt="" />
@@ -239,7 +239,7 @@ class Landing extends Component {
               <div className="uk-grid">
 
                 <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={C.SOIL} alt="" />
+                  <img data-uk-svg width="35" height="35" src={C.EARTH} alt="" />
                 </div>
 
                 <div className="uk-width-5-6">
