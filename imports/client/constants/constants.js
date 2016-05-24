@@ -31,7 +31,7 @@ export const STAR = [null,
       image: EARTH
   },
 
-  {name: "Bright Green Tree",
+  {name: "Bright Green Wood",
       trigramName: "Chen",
       trigram: [2, 2, 1],
       number: 3,
@@ -42,7 +42,7 @@ export const STAR = [null,
       image: WOOD
   },
 
-  {name: "Green Tree Star",
+  {name: "Green Wood Star",
       trigramName: "Sun",
       trigram: [1, 1, 2],
       number: 4,
