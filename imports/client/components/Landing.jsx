@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 class Landing extends Component {
 
   componentWillReceiveProps(nextProps) {
-      if (nextProps.birthday.entered && nextProps.birthday.isValid && !nextProps.birthday.calcsDone) {
+      if (nextProps.birthday.entered && nextProps.birthday.isValid && nextProps.birthday.needsCalcs) {
         this.props.actions.doCoreCalcs(nextProps.birthday.date)
       }
     }
@@ -572,7 +572,7 @@ function mapStateToProps(state) {
                 entered: state.user.entered,
                 isValid: state.user.valid,
                 date:    state.user.birthday,
-                calcsDone: state.user.calcsDone,
+                needsCalcs: state.user.needsCalcs,
               },
             stars: state.user.stars,
           };
