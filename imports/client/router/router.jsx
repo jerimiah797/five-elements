@@ -3,7 +3,7 @@ import { Router, Route, Redirect, browserHistory, IndexRoute } from 'react-route
 
 
 import App from '../components/App.jsx';
-import Landing from '../components/Landing.jsx'
+import Landing from '../containers/Landing.jsx'
 import NotFound from '../components/NotFound.jsx';
 
 export default (

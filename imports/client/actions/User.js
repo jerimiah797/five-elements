@@ -4,12 +4,14 @@ import * as C from '../constants/constants.js';
 export function setBirthday(birthday) {
   if (moment(birthday, C.DATE_FORMAT).isValid()) {
     birthdayMoment = moment(birthday, C.DATE_FORMAT)
+    formatted = birthdayMoment.format("dddd, MMMM Do YYYY")
     return {
       type: 'SET_BIRTHDAY',
       entered: true,
       valid: true,
       birthday: birthdayMoment,
-      needsCalcs: true
+      needsCalcs: true,
+      formatted: formatted,
     }
   } else {
     return {
@@ -17,7 +19,8 @@ export function setBirthday(birthday) {
       entered: true,
       valid: false,
       birthday: null,
-      needsCalcs: true
+      needsCalcs: true,
+      formatted: null,
     }
   }
 

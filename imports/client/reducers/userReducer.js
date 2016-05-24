@@ -9,6 +9,7 @@ export default userReducer = function (state = [], action) {
         valid: action.valid,
         birthday: action.birthday,
         needsCalcs: action.needsCalcs,
+        formatted: action.formatted,
       }
     case 'SET_STARS':
       return {
