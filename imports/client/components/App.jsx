@@ -11,9 +11,9 @@ class App extends Component {
     //console.log(this.props)
     return (
       <div>
-        {this.props.navbar}
-        {this.props.landing}
-        {this.props.body}
+        {!this.props.birthday.needsCalcs ? this.props.navbar : null}
+        {this.props.birthday.needsCalcs ? this.props.landing : null}
+        {!this.props.birthday.needsCalcs ? this.props.body : null}
       </div>
     );
   }

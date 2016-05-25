@@ -5,6 +5,7 @@ export const WOOD = "images/Wood.svg"
 export const WATER = "images/Water.svg"
 export const METAL = "images/Metal.svg"
 export const EARTH = "images/Earth.svg"
+export const BACKGROUND = 'url("images/background.svg")'
 
 // Array of objects is padded with a null to map star number directly
 // Star 5 EARTH is located at STAR[5]

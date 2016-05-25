@@ -268,8 +268,8 @@ export const BodyFSC = (props) =>
           </div>
 
           <h1 className="uk-text-center">
-
-            Our Clients </h1>
+            Our Clients
+          </h1>
 
           <div className="uk-grid" data-uk-grid-margin>
 

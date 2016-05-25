@@ -13,22 +13,39 @@ class Landing extends Component {
 
   componentWillReceiveProps(nextProps) {
       if (nextProps.birthday.entered && nextProps.birthday.isValid && nextProps.birthday.needsCalcs) {
-        this.props.actions.doCoreCalcs(nextProps.birthday.date)
-        // birthday = window.document.getElementById('birthday')
-        // this.fadeOut(birthday)
+          this.props.actions.doCoreCalcs(nextProps.birthday.date)
+        // stub for future fading effects during landing to App transition
+        // body = window.document.getElementsByTagName('body')[0];
+        // this.fadeOut(body)
       }
     }
 
-  handleEnterKey(e) {
+  componentWillMount() {
+    //create body event listener for enter key
+  }
+
+  componentWillUnmount() {
+    //destroy event listener
+  }
+
+  handleEnterKey() {
+    props = arguments[0]
+    e = arguments[1]
+    e.persist()
     var code = (e.keyCode ? e.keyCode : e.which);
       if(code == 13) { //Enter keycode
+        e.persist()
+        //console.log(e)
         e.preventDefault()
         birthday = window.document.getElementById('birthday')
-        //console.log("handled enter key: "+birthday.value)
+        //console.log(birthday.value)
+        //console.log(props)
+        if (birthday.value != this.props.birthday.original) {
+          props.actions.setBirthday(birthday.value)
+        }
         birthday.blur()
-        //$(document.body).click()
-        body = window.document.getElementsByTagName('h1')
-        body[0].focus()
+        window.document.getElementById('bd-submit-button').blur()
+        window.document.getElementsByTagName('body')[0].click()
       }
   }
 
@@ -38,10 +55,14 @@ class Landing extends Component {
     e.preventDefault()
     setTimeout(() => {
       birthday = window.document.getElementById('birthday')
-      console.log(birthday.value)
-      console.log(props)
-      props.actions.setBirthday(birthday.value)
-    }, 200)
+      //console.log(birthday.value)
+      //console.log(props)
+      if (birthday.value != this.props.birthday.original) {
+        props.actions.setBirthday(birthday.value)
+      }
+      birthday.blur()
+    }, 100)
+    window.document.getElementById('bd-submit-button').blur()
   }
 
   fadeOut(element) {
@@ -77,6 +98,7 @@ function mapStateToProps(state) {
                 date:    state.user.birthday,
                 needsCalcs: state.user.needsCalcs,
                 formatted: state.user.formatted,
+                original: state.user.original,
               },
             stars: state.user.stars,
           };

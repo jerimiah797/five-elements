@@ -12,6 +12,7 @@ export function setBirthday(birthday) {
       birthday: birthdayMoment,
       needsCalcs: true,
       formatted: formatted,
+      original: birthday,
     }
   } else {
     return {

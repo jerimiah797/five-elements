@@ -39,7 +39,7 @@ export const LandingFSC = (props) =>
                         type="text"
                         data-uk-datepicker="{format:'MM/DD/YYYY'}"
                         placeholder="01/15/1976" />
-                      <button className="uk-button uk-button-primary"
+                      <button className="uk-button uk-button-primary" id="bd-submit-button"
                         onClick={props.handleSubmit.bind(null, props)}>
                         Submit
                       </button>
