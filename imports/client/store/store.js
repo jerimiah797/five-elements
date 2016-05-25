@@ -7,6 +7,6 @@ const logger = createLogger();
 
 const finalCreateStore = applyMiddleware(ReduxThunk, logger)(createStore);
 
-const Store = finalCreateStore(rootReducer);
+const Store = finalCreateStore(rootReducer, {user: {needsCalcs: true}});
 
 export default Store;

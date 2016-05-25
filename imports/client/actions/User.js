@@ -42,23 +42,10 @@ export function doCoreCalcs(birthdayMoment) {
 
 function calculateStars(bdm) {
   star1 = calcFirstStar(bdm)
-  // console.log("First Star: "+star1)
   star2 = calcSecondStar(star1, bdm)
-  // console.log("Second Star: "+star2)
   star3 = calcThirdStar(star1, star2)
-  // console.log("Third Star: "+star3)
   console.log("Your numbers are: "+star1+"-"+star2+"-"+star3)
   return [star1, star2, star3];
-  //tests
-  // console.log("1.5."+calcThirdStar(1,5))
-  // console.log("2.4."+calcThirdStar(2,4))
-  // console.log("3.9."+calcThirdStar(3,9))
-  // console.log("4.7."+calcThirdStar(4,7))
-  // console.log("5.7."+calcThirdStar(5,7))
-  // console.log("7.5."+calcThirdStar(7,5))
-  // console.log("9.1."+calcThirdStar(9,1))
-  // console.log("9.9."+calcThirdStar(9,9))
-  // console.log("5.5."+calcThirdStar(5,5))
 }
 
 function calcThirdStar(s1, s2) {
@@ -99,7 +86,6 @@ function calcSecondStar(star1, bdm) {
           { chiMonth = 11;  break;  }
     case (bdm.isBetween(moment(C.MONTH_DATES[12].start+(year), C.DATE_FORMAT), moment(C.MONTH_DATES[12].end+(year), C.DATE_FORMAT), null, '[]')):
           { chiMonth = 12;  break;  }
-
     default: console.log("No match found. Can't assign chiMonth")
   }
   return C.MATRIX[star1][chiMonth];
@@ -112,10 +98,8 @@ function calcFirstStar(bdm){
   needOffset = bdm.isBetween(start, end, null, '[]') //this format includes the start/end dates
   t = bdm.year()
   if (needOffset) t -= 1
-  //console.log(t)
   do {
     t = sumOfDigits(t)
-    //console.log(t)
   } while (t > 10)
   return (11 - t)
 }
@@ -127,4 +111,17 @@ function sumOfDigits(myInt) {
       t += intArray[item]
   }
   return t
+}
+
+const test = {
+  //tests
+  // console.log("1.5."+calcThirdStar(1,5))
+  // console.log("2.4."+calcThirdStar(2,4))
+  // console.log("3.9."+calcThirdStar(3,9))
+  // console.log("4.7."+calcThirdStar(4,7))
+  // console.log("5.7."+calcThirdStar(5,7))
+  // console.log("7.5."+calcThirdStar(7,5))
+  // console.log("9.1."+calcThirdStar(9,1))
+  // console.log("9.9."+calcThirdStar(9,9))
+  // console.log("5.5."+calcThirdStar(5,5))
 }

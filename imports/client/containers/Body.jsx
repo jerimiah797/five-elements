@@ -1,21 +1,26 @@
-// App.jsx
+
 import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor';
+import ReactDOM from 'react-dom';
+import * as C from '../constants/constants.js';
+import {BodyFSC} from '../components/Body.jsx'
+
 //redux imports
 import * as actionCreators from '../actions/User.js';
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
-class App extends Component {
+class Body extends Component {
+
+  componentWillReceiveProps(nextProps) {
+
+  }
+
   render() {
-    //console.log(this.props)
-    return (
+    return(
       <div>
-        {this.props.navbar}
-        {this.props.landing}
-        {this.props.body}
+        <BodyFSC actions={this.props.actions} birthday={this.props.birthday} stars={this.props.stars} C={C} />
       </div>
-    );
+    )
   }
 }
 
@@ -35,4 +40,4 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Body);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LandingFSC = (props) =>
+export const BodyFSC = (props) =>
 
       <div>
 

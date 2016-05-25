@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import * as C from '../constants/constants.js';
 import {LandingFSC} from '../components/Landing.jsx'
-import {NavbarFSC} from '../components/Navbar.jsx'
 
 //redux imports
 import * as actionCreators from '../actions/User.js';
@@ -16,6 +14,8 @@ class Landing extends Component {
   componentWillReceiveProps(nextProps) {
       if (nextProps.birthday.entered && nextProps.birthday.isValid && nextProps.birthday.needsCalcs) {
         this.props.actions.doCoreCalcs(nextProps.birthday.date)
+        // birthday = window.document.getElementById('birthday')
+        // this.fadeOut(birthday)
       }
     }
 
@@ -26,41 +26,44 @@ class Landing extends Component {
         birthday = window.document.getElementById('birthday')
         //console.log("handled enter key: "+birthday.value)
         birthday.blur()
-        $(document.body).click()
+        //$(document.body).click()
+        body = window.document.getElementsByTagName('h1')
+        body[0].focus()
       }
   }
 
   handleSubmit() {
-    // for(var i=0; i<arguments.length; i++) {
-    //   console.log(arguments[i])
-    // }
     e = arguments[1];
     props = arguments[0];
-
     e.preventDefault()
-    //console.log(e, props)
-    // setTimeout(function(){
-  //      birthday = window.document.getElementById('birthday')
-  //      console.log(birthday.value)
-  //      console.log(props)
-  //      props.actions.setBirthday(birthday.value)
-  //   }, 500);
     setTimeout(() => {
       birthday = window.document.getElementById('birthday')
       console.log(birthday.value)
       console.log(props)
       props.actions.setBirthday(birthday.value)
     }, 200)
-
-
-    //console.log("handled submit button: "+birthday.value)
-    //this.props.actions.setBirthday(birthday.value)
   }
 
-  render(){
+  fadeOut(element) {
+      var opacity = 1;
+      function decrease () {
+          opacity -= 0.05;
+          if (opacity <= 0){
+              // complete
+              element.style.opacity = 0;
+              return true;
+          }
+          element.style.opacity = opacity;
+          requestAnimationFrame(decrease);
+      }
+      decrease();
+  }
+
+  render() {
+    needsCalcs = this.props.birthday.needsCalcs
+
     return(
       <div>
-        
         <LandingFSC actions={this.props.actions} birthday={this.props.birthday} stars={this.props.stars} C={C} handleEnterKey={this.handleEnterKey} handleSubmit={this.handleSubmit} />
       </div>
     )
