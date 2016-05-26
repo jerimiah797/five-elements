@@ -6,166 +6,81 @@ export const BodyFSC = (props) =>
 
         <div className="uk-container uk-container-center uk-margin-large-top uk-margin-large-bottom">
 
-          <div className="uk-grid first-row-of-three" data-uk-grid-margin>
+          <div className="uk-grid uk-margin-bottom" data-uk-grid-margin>
+            <div className="uk-width-medium-1-1">
+                  <h1>Results for May 26, 2016
+                  <a className="uk-button uk-button-primary uk-margin-left" href="#">Start Over</a></h1>
+            </div>
+          </div>
+
+          <hr className="uk-grid-divider uk-margin-large-bottom" />
+
+          <div className="uk-grid first-row-of-three uk-margin-top" data-uk-grid-margin>
 
             <div className="uk-width-medium-1-3 primary">
-
-              <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-
-                  <img data-uk-svg width="35" height="35" src={props.C.FIRE} alt="" />
-
+              <div className="uk-grid uk-img-preserve">
+                <h1 className="uk-width-1-1 uk-margin"><strong>1</strong>  Water</h1>
+                <div className="uk-width-1-3 uk-padding-top">
+                  <img data-uk-svg width="70" height="70" src={props.C.WATER} alt="" />
                 </div>
-
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Primary</h2>
-
-                  <p>
-
+                <div className="uk-width-2-3 uk-padding-top">
+                  <div className="uk-panel uk-panel-header">
+                    <p className="uk-panel-title uk-h6">
+                      Primary Star
+                    </p>
+                    <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
                 </div>
-
               </div>
-
             </div>
 
-            <div className="uk-width-medium-1-3 character">
-
+            <div className="uk-width-medium-1-3 primary">
               <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={props.C.WOOD} alt="" />
+                <h1 className="uk-width-1-1 uk-margin"><strong>7</strong>  Yin Metal</h1>
+                <div className="uk-width-1-3 uk-img-preserve uk-padding-top">
+                  <img data-uk-svg width="70" height="70" src={props.C.METAL} alt="" />
                 </div>
-
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Character</h2>
-
-                  <p>
-
+                <div className="uk-width-2-3 uk-padding-top">
+                  <div className="uk-panel uk-panel-header">
+                    <p className="uk-panel-title uk-h6">
+                      Character Star
+                    </p>
+                    <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
                 </div>
-
               </div>
-
             </div>
 
-            <div className="uk-width-medium-1-3 energetic">
-
+            <div className="uk-width-medium-1-3 primary">
               <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={props.C.WATER} alt="" />
+                <h1 className="uk-width-1-1 uk-margin"><strong>8</strong>  Yang Earth</h1>
+                <div className="uk-width-1-3 uk-img-preserve uk-padding-top">
+                  <img data-uk-svg width="70" height="70" src={props.C.EARTH} alt="" />
                 </div>
-
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Energetic</h2>
-
-                  <p>
-
+                <div className="uk-width-2-3 uk-padding-top">
+                  <div className="uk-panel uk-panel-header">
+                    <p className="uk-panel-title uk-h6">
+                      Energetic Star
+                    </p>
+                    <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
                 </div>
-
               </div>
-
             </div>
 
           </div>
 
-          <div className="uk-grid second-row-of-three" data-uk-grid-margin>
 
-            <div className="uk-width-medium-1-3">
-
-              <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={props.C.METAL} alt="" />
-                </div>
-
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Item 4</h2>
-
-                  <p>
-
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div className="uk-width-medium-1-3">
-
-              <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={props.C.EARTH} alt="" />
-                </div>
-
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Sample Heading </h2>
-
-                  <p>
-
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div className="uk-width-medium-1-3">
-
-              <div className="uk-grid">
-
-                <div className="uk-width-1-6 uk-img-preserve">
-                  <img data-uk-svg width="35" height="35" src={props.C.FIRE} alt="" />
-                </div>
-                <div className="uk-width-5-6">
-
-                  <h2 className="uk-h3">
-
-                    Sample Heading </h2>
-
-                  <p>
-
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <hr className="uk-grid-divider" />
+          <hr className="uk-grid-divider uk-margin-large-top" />
 
           <div className="uk-grid" data-uk-grid-margin>
 
@@ -248,24 +163,18 @@ export const BodyFSC = (props) =>
           <hr className="uk-grid-divider" />
 
           <div className="uk-grid" data-uk-grid-margin>
-
             <div className="uk-width-medium-1-1">
-
               <div className="uk-panel uk-panel-box uk-text-center">
-
                 <p>
-
-                  <strong>
-
-                    Phasellus viverra nulla ut metus. </strong> Quisque rutrum etiam
-                    ultricies nisi vel augue. <a className="uk-button
-                    uk-button-primary uk-margin-left" href="#">Button</a> </p>
-
+                  <strong>Phasellus viverra nulla ut metus. </strong>
+                  Quisque rutrum etiam ultricies nisi vel augue.
+                  <a className="uk-button uk-button-primary uk-margin-left" href="#">Button</a>
+                </p>
               </div>
-
             </div>
-
           </div>
+
+
 
           <h1 className="uk-text-center">
             Our Clients
