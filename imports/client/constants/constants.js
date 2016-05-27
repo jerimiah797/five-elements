@@ -1,5 +1,6 @@
 export const DATE_FORMAT = "MM/DD/YYYY"
-export const ICON_SIZE = 160
+export const ICON_SIZE = 160 //for landing page
+export const RESULTS_ICON_SIZE = 120
 export const FIRE = "images/Fire.svg"
 export const WOOD = "images/Wood.svg"
 export const WATER = "images/Water.svg"
@@ -18,7 +19,8 @@ export const STAR = [null,
       familyMember: "Middle Son",
       element: "Water",
       color: "White or transparent",
-      image: WATER
+      image: WATER,
+      balance: null,
   },
 
   {name: "Black Earth Star",
@@ -29,7 +31,8 @@ export const STAR = [null,
       familyMember: "Mother",
       element: "Earth",
       color: "Black",
-      image: EARTH
+      image: EARTH,
+      balance: "Yin",
   },
 
   {name: "Bright Green Wood",
@@ -40,7 +43,8 @@ export const STAR = [null,
       familyMember: "Eldest Son",
       element: "Wood",
       color: "Bright Green",
-      image: WOOD
+      image: WOOD,
+      balance: "Yang",
   },
 
   {name: "Green Wood Star",
@@ -51,7 +55,8 @@ export const STAR = [null,
       familyMember: "Eldest Daughter",
       element: "Wood",
       color: "Green",
-      image: WOOD
+      image: WOOD,
+      balance: "Yin",
   },
 
   {name: "Yellow Earth Star",
@@ -62,7 +67,8 @@ export const STAR = [null,
       familyMember: "the Seventh Child",
       element: "Earth",
       color: "Yellow",
-      image: EARTH
+      image: EARTH,
+      balance: "Center",
   },
 
   {name: "White Metal Star",
@@ -73,7 +79,8 @@ export const STAR = [null,
       familyMember: "Father",
       element: "Metal",
       color: "White",
-      image: METAL
+      image: METAL,
+      balance: "Yang",
   },
 
   {name: "Red Metal Star",
@@ -84,7 +91,8 @@ export const STAR = [null,
       familyMember: "Youngest Daughter",
       element: "Metal",
       color: "Red",
-      image: METAL
+      image: METAL,
+      balance: "Yin",
   },
 
   {name: "White Earth Star",
@@ -95,7 +103,8 @@ export const STAR = [null,
       familyMember: "Youngest Son",
       element: "Earth",
       color: "White",
-      image: EARTH
+      image: EARTH,
+      balance: "Yang",
   },
 
   {name: "Purple Fire Star",
@@ -106,10 +115,13 @@ export const STAR = [null,
       familyMember: "Middle Daughter",
       element: "Fire",
       color: "Purple",
-      image: FIRE
+      image: FIRE,
+      balance: null,
   }
 ]
 
+export const STAR_POSITION = ["Primary", "Character", "Energetic"]
+export const ARRAY_POSITION_MAP = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // table is padded with nulls to map literal star numbers without using zero-based translation
 // Given month m, and star s, find character star number at MATRIX[s][m]
 export const MATRIX = [null,

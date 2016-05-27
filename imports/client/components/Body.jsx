@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import StarPanel from './StarPanel.jsx'
 
 export const BodyFSC = (props) =>
 
@@ -8,74 +9,18 @@ export const BodyFSC = (props) =>
 
           <div className="uk-grid uk-margin-bottom" data-uk-grid-margin>
             <div className="uk-width-medium-1-1">
-                  <h1>Results for May 26, 2016
+            <h1>Birthday chosen:  {props.birthday.formatted}
                   <a className="uk-button uk-button-primary uk-margin-left" href="#">Start Over</a></h1>
             </div>
           </div>
 
           <hr className="uk-grid-divider uk-margin-large-bottom" />
 
-          <div className="uk-grid first-row-of-three uk-margin-top" data-uk-grid-margin>
+          <div className="uk-grid uk-grid-large first-row-of-three uk-margin-top" data-uk-grid-margin>
 
-            <div className="uk-width-medium-1-3 primary">
-              <div className="uk-grid uk-img-preserve">
-                <h1 className="uk-width-1-1 uk-margin"><strong>1</strong>  Water</h1>
-                <div className="uk-width-1-3 uk-padding-top">
-                  <img data-uk-svg width="70" height="70" src={props.C.WATER} alt="" />
-                </div>
-                <div className="uk-width-2-3 uk-padding-top">
-                  <div className="uk-panel uk-panel-header">
-                    <p className="uk-panel-title uk-h6">
-                      Primary Star
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="uk-width-medium-1-3 primary">
-              <div className="uk-grid">
-                <h1 className="uk-width-1-1 uk-margin"><strong>7</strong>  Yin Metal</h1>
-                <div className="uk-width-1-3 uk-img-preserve uk-padding-top">
-                  <img data-uk-svg width="70" height="70" src={props.C.METAL} alt="" />
-                </div>
-                <div className="uk-width-2-3 uk-padding-top">
-                  <div className="uk-panel uk-panel-header">
-                    <p className="uk-panel-title uk-h6">
-                      Character Star
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="uk-width-medium-1-3 primary">
-              <div className="uk-grid">
-                <h1 className="uk-width-1-1 uk-margin"><strong>8</strong>  Yang Earth</h1>
-                <div className="uk-width-1-3 uk-img-preserve uk-padding-top">
-                  <img data-uk-svg width="70" height="70" src={props.C.EARTH} alt="" />
-                </div>
-                <div className="uk-width-2-3 uk-padding-top">
-                  <div className="uk-panel uk-panel-header">
-                    <p className="uk-panel-title uk-h6">
-                      Energetic Star
-                    </p>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <StarPanel C={props.C} stars={props.stars} starNumber={props.stars[0]} position={props.C.ARRAY_POSITION_MAP[0]}/>
+            <StarPanel C={props.C} stars={props.stars} starNumber={props.stars[1]} position={props.C.ARRAY_POSITION_MAP[1]}/>
+            <StarPanel C={props.C} stars={props.stars} starNumber={props.stars[2]} position={props.C.ARRAY_POSITION_MAP[2]}/>
 
           </div>
 

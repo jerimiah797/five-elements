@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer.js';
 const logger = createLogger();
 
-const initialState = {user: {needsCalcs: false}}
+const initialState = {user: {needsCalcs: true}}
 
 const finalCreateStore = applyMiddleware(ReduxThunk, logger)(createStore);
 
