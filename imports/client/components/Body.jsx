@@ -9,8 +9,10 @@ export const BodyFSC = (props) =>
 
           <div className="uk-grid uk-margin-bottom" data-uk-grid-margin>
             <div className="uk-width-medium-1-1">
-            <h1>Birthday chosen:  {props.birthday.formatted}
-                  <a className="uk-button uk-button-primary uk-margin-left" href="#">Start Over</a></h1>
+            <h1>Birthday:  {props.birthday.formatted}
+                  <button className="uk-button uk-button-primary uk-margin-left"
+                    onClick={props.handleResetButton.bind(null, props)}
+                    href="#">Change</button></h1>
             </div>
           </div>
 

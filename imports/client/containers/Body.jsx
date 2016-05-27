@@ -11,14 +11,15 @@ import {connect} from "react-redux";
 
 class Body extends Component {
 
-  componentWillReceiveProps(nextProps) {
-
+  handleResetButton() {
+    props = arguments[0]
+    props.actions.setBirthday(null)
   }
 
   render() {
     return(
       <div>
-        <BodyFSC actions={this.props.actions} birthday={this.props.birthday} stars={this.props.stars} C={C} />
+        <BodyFSC actions={this.props.actions} birthday={this.props.birthday} stars={this.props.stars} C={C} handleResetButton={this.handleResetButton}/>
       </div>
     )
   }
