@@ -20,8 +20,7 @@ export default class StarPanel extends Component {
                       {this.props.C.STAR_POSITION[this.props.position]} Star
                     </p>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {this.props.C.STAR[this.props.starNumber].desc[this.props.position]}
                     </p>
                   </div>
                 </div>
